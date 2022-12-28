@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Textfield    from "./textfield"; 
 import * as utils   from "../utils";
+import { AppContext } from '../context';
 
 function GameInfo() {
     const [ playerCount, setPlayerCount ]   = useState(2);
     const [ players, setPlayers ]           = useState({});
-
+    const { dispatch }              = useContext(AppContext);
+    
     const changePlayerName = (id: number, name: string) => {
         setPlayers(prevState => ({
             ...prevState,
@@ -23,6 +25,7 @@ function GameInfo() {
         );
 
     const start = () => {
+        dispatch('ADD_PLAYERS', players);
         utils.savePlayers(players);
     };
 
