@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import './App.css';
-import GameInfo from './components/GameInfo';
-import Game from './components/Game';
+import { useState } from 'react';
+import GameInfo     from './components/game-info';
+import Game         from './components/game';
 import {
   getPlayers,
   setInitialSetup
-} from "./utils";
+}                     from "./utils";
 import { AppContext } from './context';
 
 function App() {
