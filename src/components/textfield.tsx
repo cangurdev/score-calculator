@@ -1,9 +1,9 @@
 function Textfield(props: any) {
     return (
         <input 
-            type        = { 'text' }
+            type        = { props.type || 'text' }
             onChange    = { (e : any) => props.onChange(e.target.value) }
-            className   = { 'border-2' }
+            className   = { 'rounded-lg focus:outline-none text-black px-2 py-1' }
         />
     );
   }

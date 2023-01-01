@@ -31,7 +31,7 @@ function App() {
 	};
 
   return (
-    <div className="App">
+    <div className="flex h-screen bg-background">
       <AppContext.Provider value={{
           player: {},
           round: [],

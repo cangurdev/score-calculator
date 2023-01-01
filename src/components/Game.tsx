@@ -15,16 +15,16 @@ function Game() {
         utils.setInitialSetup(true);
     }
     return (
-        <div>
+        <div className="w-full">
             <ScoreBoard />
-            <div className="flex justify-between">
+            <div className="flex justify-center">
                 <Button
-                    onChange={() => setIsModalOpen(true)}
-                    label={'Yeni Skor'}
+                    onClick = { () => setIsModalOpen(true) }
+                    label   = { 'Yeni Skor' }
                 />
                 <Button
-                    onChange={() => reset()}
-                    label={'Sıfırla'}
+                    onClick = { () => reset() }
+                    label   = { 'Sıfırla' }
                 />
             </div>
             <ScoreModal

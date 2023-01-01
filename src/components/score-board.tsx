@@ -1,22 +1,26 @@
 import * as utils   from "../utils";
 
-function ScoreBoard (props: any) {
+function ScoreBoard () {
     const players = utils.getPlayers();
     const rounds = utils.getRounds() || {};
 
     const getPlayerNames = () => {
         return Object.keys(players).map(key => (
-            <div key={key}>{ players[key] }</div>
+            <div key={ `player-${key}` }>
+                { players[key] }
+            </div>
         ));
     }
 
     const getScores = () => {
-        return rounds.map((round: any, i: number) => (
+        return rounds.map((round: any) => (
             <div className="mr-4">
                 {
                     Object.keys(round).map( (id: string ) => 
                         (
-                            <div key={i + id}>{ round[id] }</div>
+                            <div key={ `round-${id}` }>
+                                { round[id] }
+                            </div>
                         )
                     )
                 }
@@ -25,7 +29,7 @@ function ScoreBoard (props: any) {
     }
 
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center text-white">
             <div>
                 { getPlayerNames() }
             </div>

@@ -29,6 +29,7 @@ function ScoreModal(props: any) {
                 <span className="text-white">{ players[i] } </span>
                 <Textfield 
                     onChange = { (score: number ) => updatePlayerScore(i, score) }
+                    type     = { 'number' }
                 />
             </div>
         )
@@ -36,11 +37,11 @@ function ScoreModal(props: any) {
      }
     return (
         <div className="flex items-center justify-center">
-            <div className="absolute w-80 h-80 bg-cyan-400 rounded-lg flex items-center justify-center flex-col">
+            <div className="absolute w-80 h-80 bg-primary rounded-lg flex items-center justify-center flex-col">
                 { getPlayerInputs() } 
                 <Button 
-                    label = { 'Ekle' }
-                    onChange = { () => updateScores() }
+                    label   = { 'Ekle' }
+                    onClick = { () => updateScores() }
                 />
             </div>
         </div>      
