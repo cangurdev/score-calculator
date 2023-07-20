@@ -1,4 +1,6 @@
-export const savePlayers = (players: Object) => {
+import { Round, Players } from '../global';
+
+export const savePlayers = (players: Players) : void => {
     const game = JSON.parse(localStorage.getItem('game') || '');
 
     game.players = players;
@@ -6,11 +8,11 @@ export const savePlayers = (players: Object) => {
     setItem(game);
 } 
 
-export const reset = () => {
+export const reset = () : void => {
     localStorage.removeItem('game');
 } 
 
-export const updateScore = (scores: Object ) => {
+export const updateScore = (scores: Object) : void => {
     const game = JSON.parse(localStorage.getItem('game') || '');
     
     game.rounds.push(scores);
@@ -18,11 +20,11 @@ export const updateScore = (scores: Object ) => {
     setItem(game);
 } 
 
-const setItem = (item: any) => {
+const setItem = (item: any) : void => {
     localStorage.setItem('game', JSON.stringify(item));
 }
 
-export const setInitialSetup = (isReset: boolean) => {
+export const setInitialSetup = (isReset: boolean) : void => {
     const initial = {
         rounds: [],
         players: {}
@@ -34,7 +36,7 @@ export const setInitialSetup = (isReset: boolean) => {
     localStorage.setItem('game', JSON.stringify(initial));
 }
 
-export const getPlayers = () => {
+export const getPlayers = () : Players => {
     const game = localStorage.getItem('game');
     
     if (game)
@@ -43,7 +45,7 @@ export const getPlayers = () => {
     return {};
 }
 
-export const getRounds = () => {
+export const getRounds = () : [Round]=> {
     const game = localStorage.getItem('game') || '';
 
     return JSON.parse(game)?.rounds;

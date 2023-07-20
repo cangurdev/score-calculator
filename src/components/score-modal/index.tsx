@@ -1,9 +1,14 @@
 import { useState } from "react";
-import Textfield    from "./textfield"; 
-import Button       from "./button"; 
-import * as utils   from "../utils";
+import Textfield    from "../textfield"; 
+import Button       from "../button"; 
+import * as utils   from "../../utils";
 
-function ScoreModal(props: any) {
+interface scoreModalProps {
+    isOpen   : boolean,
+    setIsOpen: (value: boolean) => void
+}
+
+function ScoreModal(props: scoreModalProps) {
     const players = utils.getPlayers();
     const playerCount = Object.keys(players).length;
     const [ scores, setScores ] = useState({});
@@ -28,7 +33,7 @@ function ScoreModal(props: any) {
             <div key = {i} className="flex justify-between items-center mb-6 w-72">
                 <span className="text-white">{ players[i] } </span>
                 <Textfield 
-                    onChange = { (score: number ) => updatePlayerScore(i, score) }
+                    onChange = { (score: string ) => updatePlayerScore(i, parseInt(score)) }
                     type     = { 'number' }
                 />
             </div>

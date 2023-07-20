@@ -1,8 +1,9 @@
-import * as utils   from "../utils";
+import * as utils   from "../../utils";
+import { Round, Players } from '../../global';
 
 function ScoreBoard () {
-    const players = utils.getPlayers();
-    const rounds = utils.getRounds() || {};
+    const players: Players  = utils.getPlayers();
+    const rounds: [Round]   = utils.getRounds() || {};
 
     const getPlayerNames = () => {
         return Object.keys(players).map(key => (
@@ -13,8 +14,8 @@ function ScoreBoard () {
     }
 
     const getScores = () => {
-        return rounds.map((round: any) => (
-            <div className="mr-4">
+        return rounds.map((round: Round, i: number) => (
+            <div className="mr-4" key={ `round-${i}` }>
                 {
                     Object.keys(round).map( (id: string ) => 
                         (

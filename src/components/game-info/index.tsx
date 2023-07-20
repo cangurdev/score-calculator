@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import Textfield    from "./textfield"; 
-import Button       from "./button"; 
-import * as utils   from "../utils";
-import { AppContext } from '../context';
+import Textfield    from "../textfield"; 
+import Button       from "../button"; 
+import * as utils   from "../../utils";
+import { AppContext } from '../../context';
 
 function GameInfo() {
     const [ playerCount, setPlayerCount ]   = useState(2);
@@ -34,7 +34,7 @@ function GameInfo() {
         <div className="flex flex-col w-96 m-auto p-6 rounded-lg bg-primary">
             <div className="flex justify-between my-2">
                 <span className="text-white">Oyuncu Adedi </span>
-                <select onChange = { (e: any ) => setPlayerCount(parseInt(e.target.value)) }>
+                <select onChange = { (e: React.ChangeEvent<HTMLSelectElement> ) => setPlayerCount(parseInt(e.target.value)) }>
                     {
                         [...Array(8)].map( (_v, i) =>
                             <option value={i + 2} key={'option-' + i+2}>{i + 2}</option>
@@ -45,7 +45,6 @@ function GameInfo() {
             { playerNames }
             <Button 
                 onClick   = { () => start() }
-                className = { 'text-white' }
                 label     = { 'Başla' }
             />
         </div>
