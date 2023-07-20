@@ -16,8 +16,12 @@ function Game() {
     }
     return (
         <div className="w-full">
+            <ScoreModal
+                isOpen    = { isModalOpen }
+                setIsOpen = { ( v: boolean ) => setIsModalOpen(v) }
+            />
             <ScoreBoard />
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full absolute bottom-0">
                 <Button
                     onClick = { () => setIsModalOpen(true) }
                     label   = { 'Yeni Skor' }
@@ -27,10 +31,6 @@ function Game() {
                     label   = { 'Sıfırla' }
                 />
             </div>
-            <ScoreModal
-                isOpen    = { isModalOpen }
-                setIsOpen = { ( v: boolean ) => setIsModalOpen(v) }
-            />
         </div>
     );
 }

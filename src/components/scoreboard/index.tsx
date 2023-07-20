@@ -7,19 +7,19 @@ function ScoreBoard () {
 
     const getPlayerNames = () => {
         return Object.keys(players).map(key => (
-            <div key={ `player-${key}` }>
-                { players[key] }
+            <div className="flex justify-center text-xl w-24" key={ `player-${key}` }>
+                { players[key].toUpperCase() }
             </div>
         ));
     }
 
     const getScores = () => {
         return rounds.map((round: Round, i: number) => (
-            <div className="mr-4" key={ `round-${i}` }>
+            <div className="mr-4 flex justify-center" key={ `round-${i}` }>
                 {
                     Object.keys(round).map( (id: string ) => 
                         (
-                            <div key={ `round-${id}` }>
+                            <div className="mr-4" key={ `round-${id}` }>
                                 { round[id] }
                             </div>
                         )
@@ -30,11 +30,11 @@ function ScoreBoard () {
     }
 
     return (
-        <div className="flex justify-center text-white">
-            <div>
+        <div className="flex flex-col justify-center text-white">
+            <div className="flex justify-center">
                 { getPlayerNames() }
             </div>
-            <div className="flex ml-4">
+            <div className="ml-4">
                 { getScores() }
             </div>
         </div>
