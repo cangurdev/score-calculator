@@ -13,22 +13,46 @@ function ScoreBoard () {
         ));
     }
 
+    
     const getScores = () => {
-        return rounds.map((round: Round, i: number) => (
+        const scores : Round = {};
+
+        const roundScores = rounds.map((round: Round, i: number) => (
             <div className="mr-4 flex justify-center" key={ `round-${i}` }>
                 {
-                    Object.keys(round).map( (id: string ) => 
-                        (
+                    Object.keys(round).map( (id: string ) => {
+                        if (!scores[id])
+                            scores[id] = round[id];
+                        else
+                            scores[id] += round[id];
+
+                        return (
                             <div className="mr-4" key={ `round-${id}` }>
                                 { round[id] }
                             </div>
                         )
-                    )
+                    })
                 }
             </div>
         ));
-    }
 
+        const total = (
+            <div className="flex justify-center mt-4">
+                {
+                    Object.keys(players).map( (id: string ) => 
+                        <div className="mr-4" key={ `round-${id}` }>
+                            { scores[id] }
+                        </div>
+                    )
+                }
+            </div>
+        );
+
+        roundScores.push(total);
+        
+        return roundScores;
+    }
+    
     return (
         <div className="flex flex-col justify-center text-white">
             <div className="flex justify-center">
