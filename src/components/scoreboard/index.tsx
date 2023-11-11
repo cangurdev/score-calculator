@@ -39,7 +39,7 @@ function ScoreBoard () {
         const total = (
             <div className="flex justify-center mt-4 text-center">
                 <div className="w-48">
-                    <div>Toplam</div>
+                    <div className="mr-4">Toplam</div>
                     <div className="flex justify-around">
                         {
                             Object.keys(players).map( (id: string ) => 
