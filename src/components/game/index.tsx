@@ -21,7 +21,7 @@ function Game() {
                 setIsOpen = { ( v: boolean ) => setIsModalOpen(v) }
             />
             <ScoreBoard />
-            <div className="flex justify-center w-full absolute bottom-0">
+            <div className="flex justify-center w-full absolute bottom-4">
                 <Button
                     onClick = { () => setIsModalOpen(true) }
                     label   = { 'Yeni Skor' }

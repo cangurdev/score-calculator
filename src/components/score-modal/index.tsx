@@ -30,7 +30,7 @@ function ScoreModal(props: scoreModalProps) {
 
     const getPlayerInputs = () => {
         return [...Array(playerCount)].map( (_p, i) => (
-            <div key = {i} className="flex justify-between items-center mb-6 w-72">
+            <div key = { 'input-' + i} className="flex justify-between items-center mb-6 w-72">
                 <span className="text-white">{ players[i] } </span>
                 <Textfield 
                     onChange = { (score: string ) => updatePlayerScore(i, parseInt(score)) }
